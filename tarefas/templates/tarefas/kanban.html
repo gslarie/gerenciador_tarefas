@@ -1,0 +1,198 @@
+{% extends 'tarefas/base.html' %}
+
+{% block title %}Quadro Kanban{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h2>Quadro de Tarefas</h2>
+            <p class="text-muted">Acompanhe as atividades de todos os setores.</p>
+        </div>
+
+        <a href="{% url 'cadastrar_tarefa' %}" class="btn btn-primary">
+            + Nova tarefa
+        </a>
+    </div>
+
+    <div class="row g-3">
+
+        <!-- COLUNA A FAZER -->
+        <div class="col-md-4">
+            <div class="card shadow-sm h-100">
+
+                <div class="card-header bg-secondary text-white">
+                    <h5 class="mb-0">A fazer</h5>
+                </div>
+
+                <div class="card-body bg-light">
+
+                    {% for tarefa in tarefas_a_fazer %}
+
+                        <div class="card mb-3 shadow-sm">
+                            <div class="card-body">
+
+                                <h5>{{ tarefa.descricao }}</h5>
+
+                                <p class="mb-1">
+                                    <strong>Setor:</strong> {{ tarefa.setor }}
+                                </p>
+
+                                <p class="mb-1">
+                                    <strong>Responsável:</strong> {{ tarefa.usuario.nome }}
+                                </p>
+
+                                <p class="mb-2">
+                                    <strong>Prioridade:</strong>
+                                    {{ tarefa.get_prioridade_display }}
+                                </p>
+
+                                <small class="text-muted">
+                                    Cadastrada em:
+                                    {{ tarefa.data_cadastro|date:"d/m/Y H:i" }}
+                                </small>
+
+                                <div class="mt-3">
+                                    <a href="{% url 'atualizar_tarefa' tarefa.id %}"
+                                       class="btn btn-sm btn-outline-primary">
+                                        Atualizar
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    {% empty %}
+
+                        <p class="text-muted text-center">
+                            Nenhuma tarefa nesta coluna.
+                        </p>
+
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- COLUNA FAZENDO -->
+        <div class="col-md-4">
+            <div class="card shadow-sm h-100">
+
+                <div class="card-header bg-warning">
+                    <h5 class="mb-0">Fazendo</h5>
+                </div>
+
+                <div class="card-body bg-light">
+
+                    {% for tarefa in tarefas_fazendo %}
+
+                        <div class="card mb-3 shadow-sm">
+                            <div class="card-body">
+
+                                <h5>{{ tarefa.descricao }}</h5>
+
+                                <p class="mb-1">
+                                    <strong>Setor:</strong> {{ tarefa.setor }}
+                                </p>
+
+                                <p class="mb-1">
+                                    <strong>Responsável:</strong> {{ tarefa.usuario.nome }}
+                                </p>
+
+                                <p class="mb-2">
+                                    <strong>Prioridade:</strong>
+                                    {{ tarefa.get_prioridade_display }}
+                                </p>
+
+                                <small class="text-muted">
+                                    Cadastrada em:
+                                    {{ tarefa.data_cadastro|date:"d/m/Y H:i" }}
+                                </small>
+
+                                <div class="mt-3">
+                                    <a href="{% url 'atualizar_tarefa' tarefa.id %}"
+                                       class="btn btn-sm btn-outline-primary">
+                                        Atualizar
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    {% empty %}
+
+                        <p class="text-muted text-center">
+                            Nenhuma tarefa nesta coluna.
+                        </p>
+
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- COLUNA PRONTO -->
+        <div class="col-md-4">
+            <div class="card shadow-sm h-100">
+
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0">Pronto</h5>
+                </div>
+
+                <div class="card-body bg-light">
+
+                    {% for tarefa in tarefas_prontas %}
+
+                        <div class="card mb-3 shadow-sm">
+                            <div class="card-body">
+
+                                <h5>{{ tarefa.descricao }}</h5>
+
+                                <p class="mb-1">
+                                    <strong>Setor:</strong> {{ tarefa.setor }}
+                                </p>
+
+                                <p class="mb-1">
+                                    <strong>Responsável:</strong> {{ tarefa.usuario.nome }}
+                                </p>
+
+                                <p class="mb-2">
+                                    <strong>Prioridade:</strong>
+                                    {{ tarefa.get_prioridade_display }}
+                                </p>
+
+                                <small class="text-muted">
+                                    Cadastrada em:
+                                    {{ tarefa.data_cadastro|date:"d/m/Y H:i" }}
+                                </small>
+
+                                <div class="mt-3">
+                                    <a href="{% url 'atualizar_tarefa' tarefa.id %}"
+                                       class="btn btn-sm btn-outline-primary">
+                                        Atualizar
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    {% empty %}
+
+                        <p class="text-muted text-center">
+                            Nenhuma tarefa nesta coluna.
+                        </p>
+
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

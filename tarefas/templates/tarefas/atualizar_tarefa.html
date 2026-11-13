@@ -1,0 +1,48 @@
+{% extends 'tarefas/base.html' %}
+
+{% block title %}Atualizar Tarefa{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="card shadow-sm mx-auto" style="max-width: 600px;">
+
+        <div class="card-header bg-warning">
+            <h4 class="mb-0">Atualizar Tarefa</h4>
+        </div>
+
+        <div class="card-body">
+
+            <h5>{{ tarefa.descricao }}</h5>
+            <p class="text-muted">Setor: {{ tarefa.setor }}</p>
+
+            <form method="POST">
+                {% csrf_token %}
+
+                <div class="mb-3">
+                    <label class="form-label">Status</label>
+                    {{ form.status }}
+                    {{ form.status.errors }}
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Prioridade</label>
+                    {{ form.prioridade }}
+                    {{ form.prioridade.errors }}
+                </div>
+
+                <button type="submit" class="btn btn-success">
+                    Salvar alterações
+                </button>
+
+                <a href="{% url 'kanban' %}" class="btn btn-secondary">
+                    Cancelar
+                </a>
+
+            </form>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
