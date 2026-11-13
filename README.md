@@ -1,125 +1,122 @@
-Gerenciador de Tarefas
+<h1 align="center">📋 Gerenciador de Tarefas</h1>
 
-Sistema web de gerenciamento de tarefas desenvolvido com Python, Django e MySQL, utilizando um quadro Kanban para organizar e acompanhar as atividades.
+<p align="center">
+  Sistema web para gerenciamento e acompanhamento de atividades utilizando um quadro Kanban.
+</p>
 
-Funcionalidades
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.14-3776AB?logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/Django-6.1.3-092E20?logo=django&logoColor=white" />
+  <img src="https://img.shields.io/badge/MySQL-8.4-4479A1?logo=mysql&logoColor=white" />
+  <img src="https://img.shields.io/badge/Bootstrap-5-7952B3?logo=bootstrap&logoColor=white" />
+</p>
 
-Cadastro de usuários.
+💻 Sobre o projeto
 
-Cadastro de tarefas.
+O Gerenciador de Tarefas é uma aplicação web desenvolvida como atividade prática do curso de Desenvolvimento de Sistemas do SENAI.
 
-Associação de tarefas aos usuários responsáveis.
+O sistema permite cadastrar usuários, distribuir tarefas entre responsáveis e acompanhar o andamento das atividades de diferentes setores por meio de um quadro Kanban.
 
-Definição de setor e prioridade.
+✨ Funcionalidades
 
-Atualização de status e prioridade.
+Recurso
 
-Visualização das tarefas em um quadro Kanban com três etapas:
+Descrição
 
-A fazer
+👤 Usuários
 
-Fazendo
+Cadastro de usuários e e-mails
 
-Pronto
+📝 Tarefas
 
-Tecnologias utilizadas
+Cadastro de atividades e setores
 
-Python 3.14
+🚦 Prioridades
 
-Django 6.1.3
+Classificação baixa, média e alta
 
-MySQL 8.4
+🔄 Atualizações
 
-HTML5
+Alteração de status e prioridade
 
-Bootstrap 5
+📊 Kanban
 
-Git e GitHub
+Visualização das tarefas por etapa
 
-Estrutura do banco de dados
+Fluxo das tarefas
 
-O sistema possui duas entidades principais:
+<p align="center">
+  <strong>📝 A fazer</strong> &nbsp; ➜ &nbsp;
+  <strong>⚙️ Fazendo</strong> &nbsp; ➜ &nbsp;
+  <strong>✅ Pronto</strong>
+</p>
 
-Usuario
+🛠️ Tecnologias
 
-id (PK)
+<p>
+  <img src="https://skillicons.dev/icons?i=python,django,mysql,html,bootstrap,git,github" />
+</p>
 
-nome
+🗄️ Banco de dados
 
-email
+O banco de dados possui duas entidades principais:
 
-Tarefa
+Usuario: armazena os dados dos usuários.
 
-id (PK)
+Tarefa: armazena as atividades e está vinculada a um usuário por meio de uma chave estrangeira.
 
-usuario_id (FK)
+O relacionamento é de um para muitos (1): um usuário pode possuir várias tarefas, e cada tarefa pertence a um único usuário.
 
-descricao
+Diagrama entidade-relacionamento
 
-setor
+<p align="center">
+  <img src="diagrama_gerenciador_tarefas.png" alt="Diagrama entidade-relacionamento" width="85%" />
+</p>
 
-prioridade
+🚀 Como executar
 
-data_cadastro
-
-status
-
-Relacionamento: um usuário pode possuir várias tarefas, enquanto cada tarefa pertence a um único usuário (1).
-
-O diagrama entidade-relacionamento está disponível no arquivo diagrama_gerenciador_tarefas.png.
-
-Como executar o projeto
-
-1. Clonar o repositório
+1. Clone o repositório
 
 git clone https://github.com/gslarie/gerenciador_tarefas.git
 cd gerenciador_tarefas
 
-2. Criar e ativar o ambiente virtual
+2. Crie o ambiente virtual
 
 python -m venv venv
 
-Windows PowerShell:
+No Windows PowerShell:
 
 .\venv\Scripts\Activate.ps1
 
-3. Instalar as dependências
+3. Instale as dependências
 
 pip install -r requirements.txt
 
-4. Configurar o banco de dados
+4. Configure o banco de dados
 
-Crie um banco de dados MySQL chamado gerenciador_tarefas.
-
-Crie um arquivo .env na raiz do projeto com as seguintes configurações:
+Crie um banco MySQL chamado gerenciador_tarefas e um arquivo .env na raiz do projeto:
 
 DJANGO_SECRET_KEY=sua_chave_secreta
 DB_NAME=gerenciador_tarefas
 DB_USER=root
-DB_PASSWORD=sua_senha_mysql
+DB_PASSWORD=sua_senha
 DB_HOST=127.0.0.1
 DB_PORT=3306
 
-Substitua os valores de exemplo pelas suas próprias configurações locais.
-
-5. Executar as migrações
+5. Execute as migrações e inicie o servidor
 
 python manage.py migrate
-
-6. Iniciar o servidor
-
 python manage.py runserver
 
-Acesse no navegador:
+Acesse: http://127.0.0.1:8000/
 
-http://127.0.0.1:8000/
+👩‍💻 Autoria
 
-Banco de dados
+Desenvolvido por Larissa
+Curso de Desenvolvimento de Sistemas — SENAI
 
-O arquivo gerenciador_tarefas.sql contém a estrutura e os dados exportados do banco de dados.
-
-Autoria
-
-Projeto desenvolvido por Larissa, como atividade prática do curso de Desenvolvimento de Sistemas do SENAI.
-
-GitHub: https://github.com/gslarie
+<p align="center">
+  <a href="https://github.com/gslarie">
+    <img src="https://img.shields.io/badge/GitHub-gslarie-181717?logo=github&logoColor=white" />
+  </a>
+</p>
